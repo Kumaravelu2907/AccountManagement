@@ -15,7 +15,7 @@ import com.scb.bank.management.service.AccountService;
 
 
 /*
- * @author boopathi.r
+ * 
  */
 @Service
 public class AccountServiceImpl implements AccountService {
