@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Standard Chartered Bank</title>
+   </head>
+    
+   <body style ="background:#00ffff;">   
+ <form th:action="@{/sendMoney}" th:object="${sendMoneyForm}" method="POST">
+         <table>
+ 
+           <tr>
+              <td>From Bank Account Id</td>
+              <td><input type="text" th:field="*{fromAccountId}"/></td>
+           </tr>
+           <tr>
+              <td>To Bank Account Id</td>
+              <td><input type="text" th:field="*{toAccountId}"/></td>
+           </tr>
+            <tr>
+              <td>Amount</td>
+              <td><input type="text" th:field="*{amount}" /></td>
+           </tr>           
+           <tr>
+              <td>&nbsp;</td>
+              <td><input type="submit" value="Send"/></td>
+           </tr>       
+         </table>      
+      </form>
+       
+        </body>
+</html>

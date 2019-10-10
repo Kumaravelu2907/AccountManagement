@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Standard Chartered Bank</title>
+   </head>
+    
+   <body style ="background:#00ffff;">      
+      <!-- Include _menu.html -->
+<!--       <th:block th:include="/Bankmenu"></th:block> -->
+<div 
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;background:#d7b2b2;">
+ 
+  <a th:href="@{/menu}">Account List</a>
+ 
+     | &nbsp;
+ 
+   <a th:href="@{/sendMoney}">Fund Transfer</a>  
+   | &nbsp;
+ 
+   <a th:href="@{/depositMoney}">Deposit Fund</a>  
+   
+ 
+</div>
+       
+      <h2>Send Money</h2>
+      <div th:if="${errorMessage!=null}"
+           style="color:red;font-style:italic" th:utext="${errorMessage}">..</div>
+       
+      <form th:action="@{/sendMoney}" th:object="${sendMoneyForm}" method="POST">
+         <table>
+ 
+           <tr>
+              <td>From Bank Account Id</td>
+              <td><input type="text" th:field="*{fromAccountId}"/></td>
+           </tr>
+           <tr>
+              <td>To Bank Account Id</td>
+              <td><input type="text" th:field="*{toAccountId}"/></td>
+           </tr>
+            <tr>
+              <td>Amount</td>
+              <td><input type="text" th:field="*{amount}" /></td>
+           </tr>           
+           <tr>
+              <td>&nbsp;</td>
+              <td><input type="submit" value="Send"/></td>
+           </tr>       
+         </table>      
+      </form>
+       
+   </body>
+</html>

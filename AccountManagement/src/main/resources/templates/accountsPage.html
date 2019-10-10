@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Standard Chartered Bank</title>
+ 
+<style>
+th, td {
+    padding: 5px;
+}
+</style>
+ 
+</head>
+<body style ="background:#00ffff;">  
+<div 
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;background:#d7b2b2;">
+ 
+  <a th:href="@{/menu}">Accounts</a>
+ 
+     | &nbsp;
+ 
+   <a th:href="@{/sendMoney}">Fund Transfer</a>  
+   
+ 
+</div>
+    <!-- Include _menu.html -->
+<!--     <th:block th:include="/Bankmenu"></th:block> -->
+ 
+    <h2>Accounts</h2>
+ 
+    <table border="1">
+        <tr>
+            <th style ="width:90px;">Account Id</th>
+            <th style ="width:90px;">CustomerName</th>
+            <th style ="width:70px;">Balance</th>
+        </tr>
+        <tr th:each="accountInfo : ${accountInfos}">
+            <td th:utext="${accountInfo.id}">..</td>
+            <td th:utext="${accountInfo.fullName}">..</td>
+            <td th:utext="${accountInfo.balance}">..</td>
+        </tr>
+ 
+    </table>
+</body>
+</html>
